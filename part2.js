@@ -64,9 +64,7 @@ db.submissions.updateOne({title: "The River Bend"},
 
 
 // #11 Add a field round2 = true to all submissions with at least 10 upvotes. (expect 3 matches)
+db.submissions.find({upvotes: {$gte: 10 }})
+db.submissions.updateMany({ upvotes: { $gte: 10 } }, { $set: { round2: true } })
 
-// db.submissions.updateMany({title: "The River Bend", title: "Star Bright" , title: "Non Sequitur"},
-// {$push: {round2: true}})
 
-db.submissions.updateMany(
-    {"upvotes": 10})
